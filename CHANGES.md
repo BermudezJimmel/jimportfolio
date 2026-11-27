@@ -7,6 +7,8 @@ Branch: `feature/modern-portfolio`
 - Dark and light theme. It follows the visitor's system setting and a button saves the choice.
 - Responsive layout, skip link, visible keyboard focus, alt text on the photo, semantic landmarks.
 - Motion is subtle (fade-in on scroll, card hover, counters). All of it is switched off under `prefers-reduced-motion`.
+- Favicon replaced. The tab icon was the old orange DEVJIM cloud logo (`img/logo/devjim-logo.svg`, an embedded bitmap, unreadable at 16 px). New files: `img/favicon.svg` (black rounded square, white "DJ"), `img/favicon-32.png`, `img/apple-touch-icon.png` (180x180). The `<link>` tags use `?v=2` to bust the cache. The old `devjim-logo.svg/.png` are deleted and nothing references them. Checked at 16 and 32 px in headless Chrome on light and dark backgrounds. Browsers cache favicons hard, so you may need a hard refresh (Cmd+Shift+R), or close and reopen the tab, to see it. No web manifest was added.
+- The navbar brand is unchanged (the terminal icon + DEVJIM); my earlier "DJ" badge change was reverted.
 - Navbar rebuilt: brand "DEVJIM" left, links centered, 44px icon buttons right (command menu, sun/moon theme), sticky with blurred background, active link highlighted on scroll. Below 980px the links move into the command menu (Menu button, `/` or `Ctrl K`), so it fits 320px to 1440px.
 - Icons: inline SVG sprite (Lucide style, no CDN) used on nav links, section labels, service cards, skill chips (one icon per category), filter buttons and contact links (LinkedIn, GitHub, Credly). I checked `skillicons.dev` (HTTP 200) but did not use it: it covers only some of the tools, mixes styles, and adds a third-party request.
 - Case studies now open in a modal (native `<dialog>`): Problem / Approach / Outcome, tech chips, prev/next (buttons and arrow keys, respects the active filter), Esc, click outside, scroll lock, focus returns to the card, fade/slide animation (off under reduced motion). Cards with an architecture link show "See it in the architecture explorer", which closes the modal and opens the matching diagram.
@@ -36,7 +38,7 @@ Branch: `feature/modern-portfolio`
 - Public email removed (page and chatbot). Contact is now LinkedIn, GitHub and the CV link.
 - Title, description, canonical and Open Graph / Twitter tags fixed.
 - LinkedIn link corrected to the profile ending in -037699169 (page button and command menu); the old /in/ address is gone from the repo.
-- Kept: `img/` (portrait now `img/jim.jpg`, logo used as favicon), CV link (same Google Docs URL), LinkedIn and GitHub links.
+- Kept: `img/` (portrait now `img/jim.jpg`, old logo files removed), CV link (same Google Docs URL), LinkedIn and GitHub links.
 
 ## Files touched
 - Rewritten: `index.html`
