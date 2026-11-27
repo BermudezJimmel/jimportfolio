@@ -84,10 +84,10 @@ h1 .word{display:block}
 .step-count b{display:block;font-size:clamp(3rem,7vw,5rem);line-height:1;color:var(--text);letter-spacing:-.04em;transition:opacity .3s}
 .split h2::after{display:none}
 .steps li{padding-bottom:120px}
-.js .steps li.reveal.in{opacity:.72;transition:opacity .7s var(--ease),transform 1.3s var(--ease)}
+.js .steps li.reveal.in{opacity:.8;transition:opacity .7s var(--ease),transform 1.3s var(--ease)}
 .js .steps li.reveal.in.active{opacity:1}
 #svc-grid{grid-template-columns:1fr}
-.js #svc-grid .svc{opacity:.72;transition:opacity .6s var(--ease),transform .5s var(--ease),border-color .2s}
+.js #svc-grid .svc{opacity:.8;transition:opacity .6s var(--ease),transform .5s var(--ease),border-color .2s}
 .js #svc-grid .svc.in.active,.js #svc-grid .svc:hover,.js #svc-grid .svc:focus-within{opacity:1}
 @media (max-width:860px){
   .split{grid-template-columns:1fr;gap:24px}

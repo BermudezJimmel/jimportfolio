@@ -54,15 +54,17 @@
   // 4. Sticky stepped sections: the item nearest the middle of the screen is "active".
   function steps(items, counter) {
     if (!items.length || !('IntersectionObserver' in window)) { items.forEach(function (i) { i.classList.add('active'); }); return; }
-    var o = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        items.forEach(function (i) { i.classList.toggle('active', i === e.target); });
-        if (counter) counter.textContent = ('0' + (items.indexOf(e.target) + 1)).slice(-2);
-      });
-    }, { rootMargin: '-40% 0px -45% 0px' });
+    // Pick by position, not by the last entry, so fast scrolls and anchor jumps cannot leave a stale number.
+    function pick() {
+      var mid = innerHeight * 0.55, k = 0;
+      items.forEach(function (it, n) { if (it.getBoundingClientRect().top <= mid) k = n; });
+      items.forEach(function (it, n) { it.classList.toggle('active', n === k); });
+      if (counter) counter.textContent = ('0' + (k + 1)).slice(-2);
+    }
+    var o = new IntersectionObserver(pick, { rootMargin: '-40% 0px -45% 0px' });
     items.forEach(function (i) { o.observe(i); });
-    items[0].classList.add('active');
+    addEventListener('scroll', pick, { passive: true });
+    pick();
   }
   steps($$('#exp-steps li'), $('#exp-n'));
   steps($$('#svc-grid .svc'), $('#svc-n'));
