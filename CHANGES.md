@@ -30,6 +30,7 @@ Branch: `feature/modern-portfolio`
 - Training case: topics (Bedrock, Kiro) assumed from your brief.
 - Older cases removed from the page: eCommerce microservices, microservices migration, Bedrock government chatbot, HA infrastructure, LGU cloud, and the 5 web development projects. Say which to bring back.
 - The old "Services" section, skill percentage bars, Facebook link, testimonials and background audio are gone. Bring back any you want.
+- Education (BSIT, Bestlink College, 2015 to 2019) is not on the page. Add back if wanted.
 - Location shows "Metro Manila, Philippines" (old page said Caloocan City).
 - Chatbot removed. It showed an email and claimed "5+ years" and "15+ AWS services". Say if you want a rebuilt version.
 - Open Graph image uses the portrait. A 1200x630 card image would look better.
