@@ -2,6 +2,11 @@
 
 Branch: `feature/modern-portfolio`
 
+## CV review fixes (from `JIM-SA/CV-REVIEW.md`)
+Applied: #1 Education added (BS Information Technology, Bestlink College of the Philippines, Jun 2015 to May 2019); #2 "five" pillars removed; #3/#4 Globaltronics split into Technical Support / IT Support (Apr 2019 to Jul 2020) and Junior Web Programmer (Jul 2020 to Feb 2022) with the CV wording; #5/#6 Valueline wording from the CV (CI/CD removed); #7 "Manage 55+"; #13 About heading and the "I own both" clause; #14 label "years in IT"; #15 "other three AWS certs expire in Jul 2028"; #16 full certification names; #17 "New Leadership Onboarding Award" plus "Awarded at VBusiness / Valueline"; #19 SNS moved to Compute; #20 "Also:" line with the missing CV skills; #21 "Kiro CLI". The experience counter now reads "/ 04".
+Multi-AZ: removed from the Backup and DR service text and tool chips and from the RDS node in the architecture explorer. The Backup and DR service no longer links to the "Government WordPress to AWS Auto Scaling" case (Jim's design is Single-AZ RDS). The older "Government high-availability infrastructure" and "Local government cloud infrastructure" cases still say Multi-AZ because they come from the old site and were left as they were.
+Left as is on purpose (Jim's own claims from the old site): #9 to #12, #18, #22, and the rest of the Unverified list in the review.
+
 ## Motion redesign (style and feel of ourlifeos.ai, monochrome only)
 I read the reference site's public CSS and JS and screenshotted it. Its motion vocabulary: blur-and-rise word reveal in the hero, fade-up reveals (22 px, 1.3 s, expo-out easing, staggered delays), a looping SVG "climb" with a moving dot and checkpoint ripples, a rotating statement line, mono uppercase numbered labels ("01 · The gap"), glass panels and soft drifting glows. I rebuilt that feel with Jim's content and white/grey/black only. No text, images or code were copied. No library is used. New files: `css/motion.css` (about 9 KB) and `js/motion.js` (about 4 KB). `css/style.css` and `js/main.js` are unchanged.
 
@@ -73,6 +78,8 @@ Not changed: any factual text (the CV accuracy review will follow). The 2019, 20
 `modal/contact.php` was not used (the old page already said the form was disabled for GitHub Pages) and GitHub Pages cannot run PHP. It still holds a placeholder address. Recommend deleting it and, if a form is wanted, using a form service (Formspree, Web3Forms) or a `mailto:` link.
 
 ## Needs Jim to confirm
+- Download CV: the Google Doc may show phone, date of birth or other private details. Open it in a private window. If it does, link a sanitized PDF instead.
+- Items from the CV review left unchanged until you confirm: "enterprise clients", "WAF assessments", "CI/CD" and "replatforming" in the About text, skill chips not in the CV (CloudFront, IAM, Bash, CI/CD), the location line, and the whole list of case-study claims under Unverified in `CV-REVIEW.md`.
 - Problem / Approach / Outcome text on every case study. I wrote it from the old site text and your brief. Outcomes are deliberately qualitative (no numbers). Check each is okay to publish.
 - WordPress case: I said the driver was OS end of life and named ASG, ALB, RDS, Route 53. Remove anything that is not final.
 - Control Tower case: "landing zone design and ongoing operation" is my assumption.

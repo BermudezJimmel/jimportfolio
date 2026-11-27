@@ -73,7 +73,7 @@
     waf: ['AWS WAF', ['WAF assessments: web ACLs, rules and protected resources', 'Findings and remediation roadmap', 'VAPT remediation support']],
     alb: ['Application Load Balancer', ['Path-based routing for microservices', 'Health checks and target groups']],
     asg: ['Auto Scaling Group', ['Replatforming WordPress to an Auto Scaling Group', 'Scheduled scaling', 'ECS Fargate for containerized services']],
-    rds: ['RDS', ['Database migrations to RDS', 'Multi-AZ options in high-availability designs']],
+    rds: ['RDS', ['Database migrations to RDS']],
     vpc: ['Separate VPCs', ['Staging and Production in separate VPCs', 'VPC peering where needed', 'Session Manager for access']],
     bk2: ['Backups', ['Automated snapshots and retention', 'Restore tested before go-live']]
   };
