@@ -13,22 +13,13 @@
   $('#theme').addEventListener('click', toggleTheme);
   $('#yr').textContent = new Date().getFullYear();
 
-  // Terminal typing. The full text stays in the page if JS or motion is off.
-  var term = $('#term'), full = term.textContent, timer = null;
-  function finish() { clearInterval(timer); term.textContent = full; }
-  $('#skip-term').addEventListener('click', finish);
-  if (!reduce) {
-    var i = 0, cur = document.createElement('span');
-    cur.className = 'cur';
-    term.setAttribute('aria-label', full);
-    term.textContent = '';
-    timer = setInterval(function () {
-      i += 2;
-      if (i >= full.length) { finish(); return; }
-      term.textContent = full.slice(0, i);
-      term.appendChild(cur);
-    }, 18);
-  }
+  // Years since career start (edit data-years-since in index.html). Whole years, visitor's date.
+  $$('[data-years-since]').forEach(function (el) {
+    var p = el.dataset.yearsSince.split('-'), d = new Date(), y = d.getFullYear() - +p[0];
+    if (d < new Date(d.getFullYear(), +p[1] - 1, +p[2])) y--;
+    if (el.classList.contains('count')) { el.dataset.to = y; el.textContent = y + '+'; }
+    else el.textContent = y + '+ years';
+  });
 
   // Scroll reveal and counters.
   var els = $$('.reveal'), counts = $$('.count');

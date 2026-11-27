@@ -6,7 +6,7 @@ Branch: `feature/modern-portfolio`
 - Rebuilt as a static page: `index.html`, `css/style.css`, `js/main.js` (vanilla JS). No build step, no libraries, no web fonts (system font stack).
 - Dark and light theme. It follows the visitor's system setting and a button saves the choice.
 - Responsive layout, skip link, visible keyboard focus, alt text on the photo, semantic landmarks.
-- Motion is subtle (fade-in on scroll, card hover, counters, terminal typing). All of it is switched off under `prefers-reduced-motion`.
+- Motion is subtle (fade-in on scroll, card hover, counters). All of it is switched off under `prefers-reduced-motion`.
 - Navbar rebuilt: brand "DEVJIM" left, links centered, 44px icon buttons right (command menu, sun/moon theme), sticky with blurred background, active link highlighted on scroll. Below 980px the links move into the command menu (Menu button, `/` or `Ctrl K`), so it fits 320px to 1440px.
 - Icons: inline SVG sprite (Lucide style, no CDN) used on nav links, section labels, service cards, skill chips (one icon per category), filter buttons and contact links (LinkedIn, GitHub, Credly). I checked `skillicons.dev` (HTTP 200) but did not use it: it covers only some of the tools, mixes styles, and adds a third-party request.
 - Case studies now open in a modal (native `<dialog>`): Problem / Approach / Outcome, tech chips, prev/next (buttons and arrow keys, respects the active filter), Esc, click outside, scroll lock, focus returns to the card, fade/slide animation (off under reduced motion). Cards with an architecture link show "See it in the architecture explorer", which closes the modal and opens the matching diagram.
@@ -15,15 +15,16 @@ Branch: `feature/modern-portfolio`
 - Palette is now monochrome (white, grey, black only; cyan and navy removed). Links are underlined because they share the text color. Diagram and icon colors follow the variables. Style kept after braydentw.io (style only, no text, images or code copied). I read its public CSS. Values I chose, as CSS variables in `css/style.css`:
   - Dark (default): `--bg #000000`, `--bg2 #0a0a0a`, `--card #141414`, `--line #2e2e2e`, `--text #ffffff`, `--muted #b3b3b3`, `--accent #ffffff`, `--accent-ink #000000`.
   - Light: `--bg #ffffff`, `--bg2 #f2f2f2`, `--card #e8e8e8`, `--line #cfcfcf`, `--text #000000`, `--muted #4d4d4d`, `--accent #000000`, `--accent-ink #ffffff`.
-  - Type: Be Vietnam Pro (text) and DM Mono (labels, chips, terminal), black-weight tight headline.
+  - Type: Be Vietnam Pro (text) and DM Mono (labels and chips), black-weight tight headline.
   - Components: outlined cyan buttons that fill on hover, 12px-radius cards that lift on hover and take a cyan border, accent bar after each section title, small-radius mono chips.
   - Contrast was checked by calculation for body text, muted text and accent on both themes (AA target). Not tested with a tool.
 - Fonts come from Google Fonts (one extra request, with system-font fallback). If you want no third-party request, remove the two `fonts.g*` lines in `index.html`.
-- Photo: `img/jim.jpg` (320x320, 26 KB, cropped with `sips` from the old `img/hero/JIM.webp`, which is now unused). Shown round in the Hero and in About, alt text "Portrait of Jim". The old file also used as Open Graph image. Note the backdrop has partial neon wedding lettering at the edge; a plainer photo would look more professional.
+- Photo: `img/jim.jpg` (320x320, 26 KB, cropped with `sips` from the old `img/hero/JIM.webp`, now unused). It appears once, inside a rounded grey card in the Hero with a caption row (role, team lead and TAM, AWS SA Professional badge). It is not repeated in About. The backdrop has partial neon lettering at one edge; a plainer photo would look more professional.
 - Name rule: "Jim Bermudez" appears once, in the Hero heading. Elsewhere the page says "DEVJIM" or "Jim". Title is "DEVJIM | Solutions Architect". `<link rel="canonical">` and `og:url` were removed because they contain the name in the URL. Remaining "bermudez/jimmel" strings are only inside link URLs (LinkedIn, GitHub, Credly) and the `og:image` URL host.
 - Interactive parts (all keyboard accessible):
-  - Hero terminal (`aws sts get-caller-identity` style) with a Skip button. The full text is in the HTML, so it shows without JS.
-  - Counters for 7+ years, 55+ accounts, 4 certs.
+  - Hero portrait card (replaces the old terminal typing panel, its Skip button, JS and CSS).
+  - Counters for years, 55+ accounts, 4 certs.
+  - Years in IT update themselves. JS reads `data-years-since="2019-04-01"` (career start, Globaltronics, Apr 2019), takes whole years to the visitor's date and writes "N+" in the Hero counter and "N+ years" in About. The HTML keeps "7+" only as the no-JS fallback. To change the start date, edit that attribute in `index.html` (two places). Meta and Open Graph text no longer include a years number.
   - Architecture explorer: two SVG diagrams (multi-account organization, web tier). Click, focus or press Enter on a node to see what I did there. No numbers beyond 55+.
   - Case studies as expandable cards (Problem / Approach / Outcome + tech chips) with filters.
   - Skills as filterable chips (Network, Compute, Security, IaC and CI, Web and mail, AI).
