@@ -1,646 +1,231 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Jimmel Bermudez - Solutions Architect | Cloud Engineer | AWS Certified Professional">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jimmel Bermudez | Solutions Architect, AWS Certified Professional</title>
+<meta name="description" content="Jimmel Bermudez is a Solutions Architect and Service Delivery lead at Sagesoft Solutions Inc. AWS Certified Solutions Architect Professional. Multi-account AWS governance, migrations, WAF assessments and client training.">
 <meta name="author" content="Jimmel Bermudez">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>DevJim | Solutions Architect</title>
-<link rel="icon" type="image/x-icon" href="img/logo/devjim-logo.svg">
-<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/plugins.css" />
-<link rel="stylesheet" type="text/css" href="css/dark.css" />
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+<meta name="theme-color" content="#0b1220">
+<link rel="canonical" href="https://bermudezjimmel.github.io/jimportfolio/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jimmel Bermudez | Solutions Architect">
+<meta property="og:description" content="Solutions Architect and Service Delivery lead. AWS Certified Solutions Architect Professional. 55+ AWS accounts, migrations, governance and client training.">
+<meta property="og:url" content="https://bermudezjimmel.github.io/jimportfolio/">
+<meta property="og:image" content="https://bermudezjimmel.github.io/jimportfolio/img/hero/JIM.webp">
+<meta property="og:image:alt" content="Portrait of Jimmel Bermudez">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="img/logo/devjim-logo.svg">
+<script>
+(function(){try{var t=localStorage.getItem('theme');if(!t){t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){}})();
+</script>
 <style>
-/* Portfolio gradient cards - no thumbnails */
-.iknow_tm_portfolio .portfolio_list ul li .list_inner .image .main {
-	background-size: cover;
-}
-.iknow_tm_portfolio .portfolio_list ul li.cloud .list_inner .image .main {
-	background: linear-gradient(135deg, #0f2027, #203a43, #2c5364) !important;
-}
-.iknow_tm_portfolio .portfolio_list ul li.webdev .list_inner .image .main {
-	background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460) !important;
-}
-.iknow_tm_portfolio .portfolio_list ul li.consulting .list_inner .image .main {
-	background: linear-gradient(135deg, #1c1c3d, #2d2d5e, #3a3a7e) !important;
-}
+:root{--bg:#0b1220;--bg2:#111a2e;--card:#14203a;--text:#e7ecf5;--muted:#a3b0c8;--line:#24324f;--accent:#5eead4;--accent-ink:#052e2b;--link:#7dd3fc;--shadow:0 10px 30px rgba(0,0,0,.35)}
+[data-theme="light"]{--bg:#f7f9fc;--bg2:#eef2f8;--card:#fff;--text:#0f1b33;--muted:#4a5a78;--line:#d6deeb;--accent:#0f766e;--accent-ink:#fff;--link:#0b5cad;--shadow:0 10px 30px rgba(15,27,51,.08)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--accent-ink);padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:16px;min-height:60px}
+.brand{font-weight:700;color:var(--text);text-decoration:none;letter-spacing:.2px}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0 0 0 auto;padding:0;flex-wrap:wrap}
+.nav ul a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-size:.95rem}
+.nav ul a:hover{color:var(--text);background:var(--bg2)}
+.icon-btn{background:var(--bg2);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:inherit;cursor:pointer}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;padding:12px 20px;border-radius:12px;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+section{padding:72px 0}
+section.alt{background:var(--bg2)}
+h1,h2,h3{line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2.2rem,5vw,3.6rem)}
+h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+.eyebrow{color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;margin:0 0 .6rem}
+.lead{color:var(--muted);font-size:1.15rem;max-width:62ch}
+.hero{padding:80px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+.hero img{width:100%;max-width:340px;aspect-ratio:1;object-fit:cover;border-radius:28px;border:1px solid var(--line);box-shadow:var(--shadow);justify-self:center}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:32px;padding:0;list-style:none}
+.stats b{display:block;font-size:1.6rem}
+.stats span{color:var(--muted);font-size:.9rem}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow);transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.card h3{font-size:1.1rem}
+.card p{color:var(--muted);margin:.4em 0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:14px 0 0}
+.tags li{font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--muted)}
+.card .k{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:700;margin-top:12px;display:block}
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 28px 24px}
+.timeline li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.timeline h3{margin:0;font-size:1.1rem}
+.timeline .meta{color:var(--muted);font-size:.9rem}
+.timeline p{margin:.5em 0 0;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact-links{display:flex;gap:12px;flex-wrap:wrap}
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media (max-width:820px){.hero .wrap,.two{grid-template-columns:1fr}.hero img{max-width:220px;order:-1}.nav ul{display:none}.nav .icon-btn{margin-left:auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
-<body class="dark">
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Jim Bermudez</a>
+    <nav aria-label="Primary"><ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Case studies</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <button class="icon-btn" id="theme" type="button" aria-label="Switch between dark and light theme">Theme</button>
+  </div>
+</header>
 
-<!-- PRELOADER -->
-<div id="preloader"><div class="loader_line"></div></div>
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Solutions Architect &middot; Service Delivery Lead &middot; TAM</p>
+      <h1>Jimmel Bermudez</h1>
+      <p class="lead">I design, migrate and govern AWS environments for government and enterprise clients at Sagesoft Solutions Inc., and I lead the team that keeps them running.</p>
+      <div class="cta">
+        <a class="btn" href="#work">See case studies</a>
+        <a class="btn ghost" href="https://docs.google.com/document/d/1G2QmQ9JsEq9-hnrprWBWA94BcPbHApqL/edit?usp=sharing&amp;ouid=107885824412690081402&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Download CV</a>
+      </div>
+      <ul class="stats">
+        <li><b>55+</b><span>AWS accounts managed</span></li>
+        <li><b>6+</b><span>years in IT and cloud</span></li>
+        <li><b>SA Pro</b><span>AWS certified (Jul 2025)</span></li>
+      </ul>
+    </div>
+    <img src="img/hero/JIM.webp" width="340" height="340" alt="Portrait of Jimmel Bermudez" fetchpriority="high">
+  </div>
+</section>
 
-<!-- WRAPPER ALL -->
-<div class="iknow_tm_all_wrap" data-magic-cursor="show" data-animation-in="zoomIn" data-animation-out="zoomOut">
+<section class="alt" id="about">
+  <div class="wrap two">
+    <div class="reveal">
+      <p class="eyebrow">About</p>
+      <h2>Architect, delivery lead and trusted technical advisor</h2>
+    </div>
+    <div class="reveal">
+      <p>I am a Solutions Architect at Sagesoft Solutions Inc. I also lead the Service Delivery Department and act as Technical Account Manager (TAM) for client accounts, so I own both the design and the day-to-day outcome.</p>
+      <p>My work covers multi-account governance with AWS Control Tower, migrations and replatforming, WAF assessments, infrastructure as code with Terraform, CI/CD, and hands-on training for client teams. I also build with Amazon Bedrock and Kiro.</p>
+    </div>
+  </div>
+</section>
 
-<!-- MODALBOX -->
-<div class="iknow_tm_modalbox"><div class="box_inner"><div class="close"><a href="#"><img class="svg" src="img/svg/cancel.svg" alt="" /></a></div><div class="description_wrap"></div></div></div>
+<section id="experience">
+  <div class="wrap">
+    <p class="eyebrow">Experience</p>
+    <h2>Where I have worked</h2>
+    <ol class="timeline">
+      <li class="reveal"><h3>Solutions Architect, Service Delivery Lead and TAM</h3>
+        <div class="meta">Sagesoft Solutions Inc. &middot; Oct 2024 to present</div>
+        <p>Design and review AWS architectures, run AWS Organizations and Control Tower across 55+ accounts, lead the Service Delivery Department, and act as TAM for client accounts. Deliver WAF assessments and client AWS training.</p></li>
+      <li class="reveal"><h3>DevOps / Cloud Engineer and Web Services Team Lead</h3>
+        <div class="meta">VBusiness Software and Solutions Inc. &middot; Feb 2022 to Oct 2024</div>
+        <p>Managed AWS infrastructure, CI/CD pipelines and containerized deployments. Led implementation and post-support teams across development, staging and production.</p></li>
+      <li class="reveal"><h3>Technical Support and Junior Web Programmer</h3>
+        <div class="meta">Globaltronics Inc. &middot; Apr 2019 to Feb 2022</div>
+        <p>Built websites with HTML, CSS, JavaScript, PHP and WordPress. Managed hosting and SSL, and supported client deployments.</p></li>
+    </ol>
+  </div>
+</section>
 
-<div class="iknow_tm_extra_demo_2">
-<span class="top_shape"></span>
-<span class="bottom_shape"></span>
-<div class="iknow_tm_fixed_background" data-img-url="img/hero/5.jpg"></div>
+<section class="alt" id="work">
+  <div class="wrap">
+    <p class="eyebrow">Case studies</p>
+    <h2>Selected client work</h2>
+    <p class="lead">Client names are withheld.</p>
+    <div class="grid" style="margin-top:28px">
+      <article class="card reveal">
+        <h3>Government WordPress to AWS Auto Scaling</h3>
+        <p>Replatforming a public government WordPress site from a legacy server to an Auto Scaling Group on AWS, driven by operating system end of life.</p>
+        <span class="k">My part</span><p>Solution architecture, implementation plan, TAM for the engagement.</p>
+        <ul class="tags"><li>Auto Scaling</li><li>ALB</li><li>RDS</li><li>Route 53</li><li>WordPress</li></ul>
+      </article>
+      <article class="card reveal">
+        <h3>Multi-account governance with Control Tower</h3>
+        <p>Organizing many AWS accounts under AWS Organizations and Control Tower with guardrails, so teams get accounts quickly and security stays consistent.</p>
+        <span class="k">My part</span><p>Landing zone design and ongoing operation across 55+ accounts.</p>
+        <ul class="tags"><li>Control Tower</li><li>Organizations</li><li>IAM</li><li>Terraform</li></ul>
+      </article>
+      <article class="card reveal">
+        <h3>AWS WAF assessment</h3>
+        <p>Reviewing web ACLs, rules and the resources they protect, then reporting gaps and recommended changes to the client.</p>
+        <span class="k">My part</span><p>Assessment, findings report and recommendations.</p>
+        <ul class="tags"><li>AWS WAF</li><li>CloudFront</li><li>ALB</li><li>Security review</li></ul>
+      </article>
+      <article class="card reveal">
+        <h3>Client AWS training</h3>
+        <p>Hands-on AWS workshops for client technical teams, covering core services, safe operations and new tooling such as Amazon Bedrock and Kiro.</p>
+        <span class="k">My part</span><p>Curriculum, live delivery and guides.</p>
+        <ul class="tags"><li>Training</li><li>Knowledge transfer</li><li>Bedrock</li><li>Kiro</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
 
-<!-- TOPBAR -->
-<div class="iknow_tm_topbar smaller onepage">
-	<div class="topbar_inner">
-		<div class="logo"><a href="#"><img src="img/logo/devjim-logo.svg" alt="" /></a></div>
-		<div class="iknow_tm_button"><a href="https://docs.google.com/document/d/1G2QmQ9JsEq9-hnrprWBWA94BcPbHApqL/edit?usp=sharing&ouid=107885824412690081402&rtpof=true&sd=true" target="_blank">Download CV</a></div>
-	</div>
-</div>
+<section id="skills">
+  <div class="wrap two">
+    <div class="reveal">
+      <p class="eyebrow">Certifications</p>
+      <h2>AWS certified</h2>
+      <ul class="timeline">
+        <li><h3>Solutions Architect, Professional</h3><div class="meta">Jul 2025</div></li>
+        <li><h3>Solutions Architect, Associate</h3><div class="meta">Feb 2023</div></li>
+        <li><h3>Cloud Practitioner</h3><div class="meta">Dec 2022</div></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Skills</p>
+      <h2>Tools I use</h2>
+      <ul class="tags" style="margin-top:0">
+        <li>AWS Organizations</li><li>Control Tower</li><li>VPC</li><li>EC2 and Auto Scaling</li><li>ECS Fargate</li><li>RDS</li><li>CloudFront</li><li>WAF</li><li>Route 53</li><li>CloudWatch</li><li>Backup and DR</li><li>Terraform</li><li>CloudFormation</li><li>CI/CD</li><li>Docker</li><li>Git and GitHub</li><li>Bash</li><li>Linux</li><li>WordPress</li><li>PHP</li><li>Amazon Bedrock</li><li>Kiro</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-<!-- MOBILE MENU -->
-<div class="iknow_tm_mobile_menu">
-	<div class="mobile_menu_inner">
-		<div class="mobile_in">
-			<div class="logo"><a href="#"><img src="img/logo/devjim-logo.svg" alt="" /></a></div>
-			<div class="trigger"><div class="hamburger hamburger--slider"><div class="hamburger-box"><div class="hamburger-inner"></div></div></div></div>
-		</div>
-	</div>
-	<div class="dropdown"><div class="dropdown_inner">
-		<ul class="anchor_nav">
-			<li class="current"><a href="#home">Home</a></li>
-			<li><a href="#about">About</a></li>
-			<li><a href="#resume">Resume</a></li>
-			<li><a href="#portfolio">Portfolio</a></li>
-			<li><a href="#service">Service</a></li>
-			<li><a href="#contact">Contact</a></li>
-		</ul>
-	</div></div>
-</div>
+<section class="alt" id="contact">
+  <div class="wrap reveal">
+    <p class="eyebrow">Contact</p>
+    <h2>Let us talk</h2>
+    <p class="lead">The best way to reach me is LinkedIn. My CV is available for download.</p>
+    <div class="contact-links cta">
+      <a class="btn" href="https://www.linkedin.com/in/jimmelber/" target="_blank" rel="noopener">Message on LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/BermudezJimmel" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="https://docs.google.com/document/d/1G2QmQ9JsEq9-hnrprWBWA94BcPbHApqL/edit?usp=sharing&amp;ouid=107885824412690081402&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Download CV</a>
+    </div>
+  </div>
+</section>
+</main>
 
-<!-- MAINPART -->
-<div class="iknow_tm_mainpart_new_2">
+<footer><div class="wrap">&copy; <span id="yr">2026</span> Jimmel Bermudez. Metro Manila, Philippines.</div></footer>
 
-<!-- SOCIAL -->
-<div class="social_list"><ul>
-	<li><a href="https://www.linkedin.com/in/jimmelber/" target="_blank"><img class="svg" src="img/svg/social/linkedin-2.svg" alt="" /></a></li>
-	<li><a href="https://github.com/BermudezJimmel" target="_blank"><img class="svg" src="img/svg/social/github-mark-white.svg" alt="" /></a></li>
-	<li><a href="https://www.facebook.com/jimmel.bermudez.28" target="_blank"><img class="svg" src="img/svg/social/facebook.svg" alt="" /></a></li>
-</ul></div>
-
-<!-- MENU -->
-<div class="main_menu"><ul class="anchor_nav">
-	<li class="current"><img class="svg" src="img/svg/squares.svg" alt="" /><span>Home</span><a class="iknow_tm_full_link" href="#home"></a></li>
-	<li><img class="svg" src="img/svg/archive.svg" alt="" /><span>About Me</span><a class="iknow_tm_full_link" href="#about"></a></li>
-	<li><img class="svg" src="img/svg/contacs.svg" alt="" /><span>Resume</span><a class="iknow_tm_full_link" href="#resume"></a></li>
-	<li><img class="svg" src="img/svg/briefcase.svg" alt="" /><span>Portfolio</span><a class="iknow_tm_full_link" href="#portfolio"></a></li>
-	<li><img class="svg" src="img/svg/gear.svg" alt="" /><span>Service</span><a class="iknow_tm_full_link" href="#service"></a></li>
-	<li><img class="svg" src="img/svg/letter.svg" alt="" /><span>Contact</span><a class="iknow_tm_full_link" href="#contact"></a></li>
-</ul></div>
-
-<!-- HERO -->
-<div class="iknow_tm_hero_fifth" id="home">
-	<div class="background"><div class="image" data-img-url="img/hero/5.jpg"></div><div class="overlay"></div></div>
-	<div class="content">
-		<div class="avatar"><div class="main" data-img-url="img/hero/JIM.webp"></div></div>
-		<div class="details">
-			<span class="hello">Hello, I'm</span>
-			<h3 class="name">Jim</h3>
-			<p class="text">Solutions Architect | Cloud Engineer | AWS Certified Professional</p>
-		</div>
-	</div>
-</div>
-
-<!-- ABOUT -->
-<div class="iknow_tm_section_new" id="about">
-	<div class="iknow_tm_about">
-		<div class="left">
-			<div class="left_inner">
-				<div class="image">
-					<img src="img/thumbs/35-44.jpg" alt="" />
-					<div class="main" data-img-url="img/hero/JIM.webp"></div>
-				</div>
-				<div class="details"><ul>
-					<li><h3>Name</h3><span>Jimmel Bermudez</span></li>
-					<li><h3>Role</h3><span>Solutions Architect</span></li>
-					<li><h3>Mail</h3><span><a href="mailto:bermudezjimmel7@gmail.com">bermudezjimmel7@gmail.com</a></span></li>
-					<li><h3>Location</h3><span>Caloocan City, Metro Manila</span></li>
-					<li><h3>Nationality</h3><span>Filipino</span></li>
-				</ul></div>
-			</div>
-		</div>
-		<div class="right">
-			<div class="iknow_tm_main_title">
-				<span>About Me</span>
-				<h3>Solutions Architect &amp; Cloud Engineer</h3>
-			</div>
-			<div class="bigger_text">
-				<p>AWS Certified Professional | Building Scalable Cloud Infrastructure for Government &amp; Enterprise</p>
-			</div>
-			<div class="text">
-				<p>Solutions Architect with 6+ years in IT and cloud engineering, managing 55+ AWS accounts across government and enterprise clients. I specialize in architecture design, cloud migration, DevOps automation, and multi-account governance. Currently leading cloud engagements at Sagesoft Solutions, Inc. — from designing scalable architectures and conducting WAF assessments to delivering hands-on AWS training for client teams.</p>
-			</div>
-			<div class="iknow_tm_button">
-				<a href="https://docs.google.com/document/d/1G2QmQ9JsEq9-hnrprWBWA94BcPbHApqL/edit?usp=sharing&ouid=107885824412690081402&rtpof=true&sd=true" target="_blank">Download CV</a>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- RESUME -->
-<div class="iknow_tm_section_new" id="resume">
-	<div class="iknow_tm_resume">
-		<div class="iknow_tm_main_title">
-			<span>Resume</span>
-			<h3>Combination of Skill &amp; Experience</h3>
-		</div>
-		<div class="resume_inner">
-			<div class="left">
-				<div class="info_list">
-					<div class="iknow_tm_resume_title"><h3>Education</h3><span class="shape"></span></div>
-					<ul>
-						<li><div class="list_inner"><div class="short">
-							<div class="job"><h3>Bachelor of Science in Information Technology</h3><span>Bestlink College of the Philippines</span></div>
-							<div class="year"><span>2015 - 2019</span></div>
-						</div><div class="text"><p>Focused on software development, networking, and IT systems management. Built a strong foundation in web technologies and database administration.</p></div></div></li>
-					</ul>
-				</div>
-				<div class="info_list">
-					<div class="iknow_tm_resume_title"><h3>Certifications</h3><span class="shape"></span></div>
-					<ul>
-						<li><div class="list_inner"><div class="short">
-							<div class="job"><h3>AWS Certified Solutions Architect – Professional</h3><span>Amazon Web Services</span></div>
-							<div class="year"><span>Jul 2025</span></div>
-						</div></div></li>
-						<li><div class="list_inner"><div class="short">
-							<div class="job"><h3>AWS Certified Solutions Architect – Associate</h3><span>Amazon Web Services</span></div>
-							<div class="year"><span>Feb 2023</span></div>
-						</div></div></li>
-						<li><div class="list_inner"><div class="short">
-							<div class="job"><h3>AWS Certified Cloud Practitioner</h3><span>Amazon Web Services</span></div>
-							<div class="year"><span>Dec 2022</span></div>
-						</div></div></li>
-					</ul>
-				</div>
-				<div class="info_list">
-					<div class="iknow_tm_resume_title"><h3>Experience</h3><span class="shape"></span></div>
-					<ul>
-						<li><div class="list_inner"><div class="short">
-							<div class="job"><h3>Solutions Architect</h3><span>Sagesoft Solutions, Inc.</span></div>
-							<div class="year"><span>Oct 2024 - Present</span></div>
-						</div><div class="text"><p>Leading client engagements and AWS infrastructure management across 55+ accounts. Designing scalable architectures, conducting WAF assessments, managing AWS Organizations with Control Tower, and delivering hands-on cloud training to government and enterprise clients.</p></div></div></li>
-						<li><div class="list_inner"><div class="short">
-							<div class="job"><h3>DevOps/Cloud Engineer &amp; Web Services Team Lead</h3><span>VBusiness Software and Solutions Inc.</span></div>
-							<div class="year"><span>Feb 2022 - Oct 2024</span></div>
-						</div><div class="text"><p>Managed AWS infrastructure, CI/CD pipelines, and containerized deployments. Led implementation and post-support teams across development, staging, and production environments. Handled shared/dedicated hosting, system administration, and client proposals.</p></div></div></li>
-						<li><div class="list_inner"><div class="short">
-							<div class="job"><h3>Technical Support &amp; Junior Web Programmer</h3><span>Globaltronics Inc.</span></div>
-							<div class="year"><span>Apr 2019 - Feb 2022</span></div>
-						</div><div class="text"><p>Full-stack web development using HTML, CSS, JavaScript, PHP, and WordPress. Managed hosting environments, SSL installations, and digital marketing support. Traveled nationwide for client engagements and technical deployments.</p></div></div></li>
-					</ul>
-				</div>
-			</div>
-			<div class="right">
-				<div class="skills_list">
-					<div class="iknow_tm_resume_title"><h3>Technical Skills</h3><span class="shape"></span></div>
-					<div class="personal"><div class="dodo_progress">
-						<div class="progress_inner" data-value="95">
-							<span><span class="label">AWS Cloud Services</span></span>
-							<span class="text">EC2, VPC, S3, RDS, ECS Fargate, Lambda, CloudFormation, Terraform, Route 53, CloudFront, WAF, Organizations, Control Tower, Cost Explorer, CloudWatch, CloudTrail, Secrets Manager, ACM, ALB/NLB, Auto Scaling, Backup &amp; DR, AWS MGN, ElastiCache/Redis, Amazon Bedrock, Kiro CLI</span>
-						</div>
-						<div class="progress_inner" data-value="90">
-							<span><span class="label">DevOps &amp; Automation</span></span>
-							<span class="text">Docker, Terraform, CI/CD Pipelines, Git/GitHub, CloudFormation (IaC), Bash Scripting, AWS CLI, Blue-Green Deployments</span>
-						</div>
-						<div class="progress_inner" data-value="85">
-							<span><span class="label">Web Development</span></span>
-							<span class="text">HTML, CSS, JavaScript, PHP, MySQL, PostgreSQL, WordPress, Bootstrap, Node.js, LAMP/LEMP Stack</span>
-						</div>
-						<div class="progress_inner" data-value="85">
-							<span><span class="label">Systems &amp; Networking</span></span>
-							<span class="text">Linux (Ubuntu, Amazon Linux), Windows Server, DNS Management, SSL/TLS, VPN (Site-to-Site, Client), Nginx, Apache</span>
-						</div>
-						<div class="progress_inner" data-value="80">
-							<span><span class="label">Architecture &amp; Consulting</span></span>
-							<span class="text">AWS Well-Architected Framework, Architecture Diagrams (draw.io), AWS Calculator, Cost Optimization, Client Training &amp; Knowledge Transfer</span>
-						</div>
-					</div></div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- PORTFOLIO -->
-<div class="iknow_tm_section_new" id="portfolio">
-	<div class="iknow_tm_portfolio">
-		<div class="iknow_tm_main_title">
-			<span>Portfolio</span>
-			<h3>Solutions I've Designed &amp; Built</h3>
-		</div>
-		<div class="portfolio_filter"><ul>
-			<li><a href="#" class="current" data-filter="*">All</a></li>
-			<li><a href="#" data-filter=".cloud">Cloud Architecture</a></li>
-			<li><a href="#" data-filter=".webdev">Web Development</a></li>
-			<li><a href="#" data-filter=".consulting">Consulting</a></li>
-		</ul></div>
-		<div class="portfolio_list"><ul class="gallery_zoom">
-
-			<!-- Cloud: Microservices eCommerce Platform -->
-			<li class="cloud">
-				<div class="list_inner">
-					<div class="image"><img src="img/thumbs/1-1.jpg" alt="" /><div class="main"></div></div>
-					<div class="overlay"></div>
-					<img class="svg" src="img/svg/text.svg" alt="" />
-					<div class="details"><span>Cloud Architecture</span><h3>Microservices eCommerce Platform</h3></div>
-					<a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-					<div class="hidden_content"><div class="popup_details"><div class="main_details">
-						<div class="textbox">
-							<p>Designed and architected a full microservices-based eCommerce platform on AWS using ECS Fargate, with separate services for web frontend (Next.js), API gateway (Go), and multiple Java-based backend services communicating via gRPC and Kafka.</p>
-							<p>The architecture includes Application Load Balancer with path-based routing, AWS Cloud Map for service discovery, Redis for caching, centralized RDS database, and ECR for container image management.</p>
-						</div>
-						<div class="detailbox"><ul>
-							<li><span class="first">Role</span><span>Solutions Architect</span></li>
-							<li><span class="first">Category</span><span>Architecture Design &amp; Implementation</span></li>
-							<li><span class="first">Services</span><span>ECS Fargate, ALB, RDS, Redis, Kafka, ECR, Cloud Map, WAF</span></li>
-						</ul></div>
-					</div></div></div>
-				</div>
-			</li>
-
-			<!-- Cloud: Enterprise Microservices Migration -->
-			<li class="cloud">
-				<div class="list_inner">
-					<div class="image"><img src="img/thumbs/1-1.jpg" alt="" /><div class="main"></div></div>
-					<div class="overlay"></div>
-					<img class="svg" src="img/svg/text.svg" alt="" />
-					<div class="details"><span>Cloud Architecture</span><h3>Enterprise Microservices Migration</h3></div>
-					<a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-					<div class="hidden_content"><div class="popup_details"><div class="main_details">
-						<div class="textbox">
-							<p>Led the migration of a government regulatory agency's monolithic application to a containerized microservices architecture on AWS. Designed the target architecture with ECS, ALB, and CI/CD pipelines.</p>
-							<p>Implemented blue-green deployment strategy, centralized logging, VAPT remediation, and SSL certificate management for secure API communications.</p>
-						</div>
-						<div class="detailbox"><ul>
-							<li><span class="first">Role</span><span>Solutions Architect &amp; DevOps Lead</span></li>
-							<li><span class="first">Category</span><span>Cloud Migration &amp; Modernization</span></li>
-							<li><span class="first">Services</span><span>ECS, ECR, ALB, RDS, S3, CloudFormation, CodePipeline, WAF</span></li>
-						</ul></div>
-					</div></div></div>
-				</div>
-			</li>
-
-			<!-- Consulting: Cloud Modernization -->
-			<li class="consulting cloud">
-				<div class="list_inner">
-					<div class="image"><img src="img/thumbs/1-1.jpg" alt="" /><div class="main"></div></div>
-					<div class="overlay"></div>
-					<img class="svg" src="img/svg/text.svg" alt="" />
-					<div class="details"><span>Consulting</span><h3>Cloud Modernization &amp; Cost Optimization</h3></div>
-					<a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-					<div class="hidden_content"><div class="popup_details"><div class="main_details">
-						<div class="textbox">
-							<p>Conducted a comprehensive cloud assessment for a government agency, including architecture review, AWS Well-Architected Framework evaluation, and cost optimization analysis with multiple architecture options.</p>
-							<p>Delivered architecture diagrams, migration roadmaps, and security recommendations including Cognito integration for user authentication.</p>
-						</div>
-						<div class="detailbox"><ul>
-							<li><span class="first">Role</span><span>Solutions Architect &amp; Consultant</span></li>
-							<li><span class="first">Category</span><span>Cloud Assessment &amp; Consulting</span></li>
-							<li><span class="first">Services</span><span>EC2, RDS, S3, Cognito, CloudFront, WAF, AWS Calculator</span></li>
-						</ul></div>
-					</div></div></div>
-				</div>
-			</li>
-
-			<!-- Cloud: AI Chatbot -->
-			<li class="cloud">
-				<div class="list_inner">
-					<div class="image"><img src="img/thumbs/1-1.jpg" alt="" /><div class="main"></div></div>
-					<div class="overlay"></div>
-					<img class="svg" src="img/svg/text.svg" alt="" />
-					<div class="details"><span>Cloud Architecture</span><h3>AI-Powered Government Chatbot</h3></div>
-					<a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-					<div class="hidden_content"><div class="popup_details"><div class="main_details">
-						<div class="textbox">
-							<p>Designed an AI-powered chatbot solution for a government commission using AWS Lambda, API Gateway, and Amazon Bedrock for natural language understanding and automated citizen support.</p>
-							<p>Built the backend API with Node.js on Lambda, integrated with the agency's existing web portal, and implemented secure API authentication.</p>
-						</div>
-						<div class="detailbox"><ul>
-							<li><span class="first">Role</span><span>Solutions Architect &amp; Developer</span></li>
-							<li><span class="first">Category</span><span>AI/ML &amp; Serverless</span></li>
-							<li><span class="first">Services</span><span>Lambda, API Gateway, Bedrock, S3, CloudFront</span></li>
-						</ul></div>
-					</div></div></div>
-				</div>
-			</li>
-
-			<!-- Consulting: Government HA -->
-			<li class="cloud consulting">
-				<div class="list_inner">
-					<div class="image"><img src="img/thumbs/1-1.jpg" alt="" /><div class="main"></div></div>
-					<div class="overlay"></div>
-					<img class="svg" src="img/svg/text.svg" alt="" />
-					<div class="details"><span>Cloud Architecture</span><h3>Government HA Infrastructure</h3></div>
-					<a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-					<div class="hidden_content"><div class="popup_details"><div class="main_details">
-						<div class="textbox">
-							<p>Designed a highly available, multi-tier architecture for a government agency — from single-instance monolith to a fully redundant setup with RDS Multi-AZ, Auto Scaling Groups, and Application Load Balancers.</p>
-							<p>Created multiple architecture cases with corresponding CloudFormation templates and AWS cost estimates for client decision-making.</p>
-						</div>
-						<div class="detailbox"><ul>
-							<li><span class="first">Role</span><span>Solutions Architect</span></li>
-							<li><span class="first">Category</span><span>Architecture Design &amp; IaC</span></li>
-							<li><span class="first">Services</span><span>EC2, RDS Multi-AZ, ALB, ASG, CloudFormation, VPC</span></li>
-						</ul></div>
-					</div></div></div>
-				</div>
-			</li>
-
-			<!-- Consulting: LGU Cloud -->
-			<li class="consulting cloud">
-				<div class="list_inner">
-					<div class="image"><img src="img/thumbs/1-1.jpg" alt="" /><div class="main"></div></div>
-					<div class="overlay"></div>
-					<img class="svg" src="img/svg/text.svg" alt="" />
-					<div class="details"><span>Consulting</span><h3>Local Government Cloud Infrastructure</h3></div>
-					<a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-					<div class="hidden_content"><div class="popup_details"><div class="main_details">
-						<div class="textbox">
-							<p>Designed a comprehensive cloud infrastructure for a local government unit, hosting multiple citizen-facing web applications including scholarship portals, employment systems, and public service platforms.</p>
-							<p>Architected with VPC isolation, multi-AZ deployment, centralized monitoring, and cost-optimized instance sizing.</p>
-						</div>
-						<div class="detailbox"><ul>
-							<li><span class="first">Role</span><span>Solutions Architect &amp; Consultant</span></li>
-							<li><span class="first">Category</span><span>Cloud Architecture &amp; Consulting</span></li>
-							<li><span class="first">Services</span><span>EC2, RDS, S3, CloudFront, Route 53, VPC, ALB</span></li>
-						</ul></div>
-					</div></div></div>
-				</div>
-			</li>
-
-			<!-- WebDev: Tech Company Corporate Website -->
-			<li class="webdev">
-				<div class="list_inner">
-					<div class="image"><img src="img/thumbs/1-1.jpg" alt="" /><div class="main"></div></div>
-					<div class="overlay"></div>
-					<img class="svg" src="img/svg/text.svg" alt="" />
-					<div class="details"><span>Web Development</span><h3>Tech Company Corporate Website</h3></div>
-					<a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-					<div class="hidden_content"><div class="popup_details"><div class="main_details">
-						<div class="textbox">
-							<p>Developed a corporate website for a technology and digital signage company showcasing products, services, and event solutions. Built with responsive design and optimized for SEO and performance.</p>
-						</div>
-						<div class="detailbox"><ul>
-							<li><span class="first">Role</span><span>Web Developer</span></li>
-							<li><span class="first">Stack</span><span>HTML, CSS, JavaScript, PHP, WordPress</span></li>
-						</ul></div>
-					</div></div></div>
-				</div>
-			</li>
-
-			<!-- WebDev: IT Solutions Company Website -->
-			<li class="webdev">
-				<div class="list_inner">
-					<div class="image"><img src="img/thumbs/1-1.jpg" alt="" /><div class="main"></div></div>
-					<div class="overlay"></div>
-					<img class="svg" src="img/svg/text.svg" alt="" />
-					<div class="details"><span>Web Development</span><h3>IT Solutions Company Website</h3></div>
-					<a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-					<div class="hidden_content"><div class="popup_details"><div class="main_details">
-						<div class="textbox">
-							<p>Built a professional website for an IT solutions and cloud services company, featuring service offerings, client portfolio, and contact management. Managed hosting and domain configuration.</p>
-						</div>
-						<div class="detailbox"><ul>
-							<li><span class="first">Role</span><span>Web Developer &amp; Hosting Admin</span></li>
-							<li><span class="first">Stack</span><span>WordPress, Elementor, PHP, Plesk Hosting</span></li>
-						</ul></div>
-					</div></div></div>
-				</div>
-			</li>
-
-			<!-- WebDev: Digital Experience Platform -->
-			<li class="webdev">
-				<div class="list_inner">
-					<div class="image"><img src="img/thumbs/1-1.jpg" alt="" /><div class="main"></div></div>
-					<div class="overlay"></div>
-					<img class="svg" src="img/svg/text.svg" alt="" />
-					<div class="details"><span>Web Development</span><h3>Digital Experience Platform</h3></div>
-					<a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-					<div class="hidden_content"><div class="popup_details"><div class="main_details">
-						<div class="textbox">
-							<p>Developed a digital experience and event platform for a technology company, featuring interactive product showcases, event registration, and virtual exhibition capabilities.</p>
-						</div>
-						<div class="detailbox"><ul>
-							<li><span class="first">Role</span><span>Web Developer</span></li>
-							<li><span class="first">Stack</span><span>HTML, CSS, JavaScript, PHP, Bootstrap</span></li>
-						</ul></div>
-					</div></div></div>
-				</div>
-			</li>
-
-			<!-- WebDev: Non-Profit Foundation Website -->
-			<li class="webdev">
-				<div class="list_inner">
-					<div class="image"><img src="img/thumbs/1-1.jpg" alt="" /><div class="main"></div></div>
-					<div class="overlay"></div>
-					<img class="svg" src="img/svg/text.svg" alt="" />
-					<div class="details"><span>Web Development</span><h3>Non-Profit Foundation Website</h3></div>
-					<a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-					<div class="hidden_content"><div class="popup_details"><div class="main_details">
-						<div class="textbox">
-							<p>Built a clean, informative website for a non-profit foundation focused on community development and advocacy. Designed for accessibility and ease of content management.</p>
-						</div>
-						<div class="detailbox"><ul>
-							<li><span class="first">Role</span><span>Web Developer</span></li>
-							<li><span class="first">Stack</span><span>HTML, CSS, JavaScript, Bootstrap</span></li>
-						</ul></div>
-					</div></div></div>
-				</div>
-			</li>
-
-			<!-- WebDev: eCommerce & Product Showcase -->
-			<li class="webdev">
-				<div class="list_inner">
-					<div class="image"><img src="img/thumbs/1-1.jpg" alt="" /><div class="main"></div></div>
-					<div class="overlay"></div>
-					<img class="svg" src="img/svg/text.svg" alt="" />
-					<div class="details"><span>Web Development</span><h3>eCommerce &amp; Product Showcase</h3></div>
-					<a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-					<div class="hidden_content"><div class="popup_details"><div class="main_details">
-						<div class="textbox">
-							<p>Developed an eCommerce website with product catalog, online ordering, and payment integration using WordPress and WooCommerce. Managed hosting, SSL, and performance optimization.</p>
-						</div>
-						<div class="detailbox"><ul>
-							<li><span class="first">Role</span><span>Web Developer &amp; Hosting Admin</span></li>
-							<li><span class="first">Stack</span><span>WordPress, WooCommerce, Elementor, GoDaddy/Hostinger</span></li>
-						</ul></div>
-					</div></div></div>
-				</div>
-			</li>
-
-			<!-- WebDev: Multiple WordPress Sites -->
-			<li class="webdev">
-				<div class="list_inner">
-					<div class="image"><img src="img/thumbs/1-1.jpg" alt="" /><div class="main"></div></div>
-					<div class="overlay"></div>
-					<img class="svg" src="img/svg/text.svg" alt="" />
-					<div class="details"><span>Web Development</span><h3>WordPress Sites &amp; Hosting Management</h3></div>
-					<a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-					<div class="hidden_content"><div class="popup_details"><div class="main_details">
-						<div class="textbox">
-							<p>Built and managed multiple WordPress websites for various clients using Elementor, WooCommerce, and custom themes. Handled end-to-end delivery including domain setup, hosting configuration, SSL installation, SEO, and ongoing maintenance.</p>
-						</div>
-						<div class="detailbox"><ul>
-							<li><span class="first">Role</span><span>Web Developer &amp; Site Admin</span></li>
-							<li><span class="first">Stack</span><span>WordPress, Elementor, WooCommerce, Plesk, GoDaddy, Hostinger, Cloudflare</span></li>
-						</ul></div>
-					</div></div></div>
-				</div>
-			</li>
-
-		</ul></div>
-	</div>
-</div>
-
-<!-- SERVICES -->
-<div class="iknow_tm_section_new" id="service">
-	<div class="iknow_tm_services">
-		<div class="iknow_tm_main_title">
-			<span>Services</span>
-			<h3>What I Bring to the Table</h3>
-		</div>
-		<div class="service_list"><ul>
-			<li><div class="list_inner">
-				<span class="icon"><img class="svg" src="img/svg/squares.svg" alt="" /></span>
-				<h3 class="title">AWS Architecture Design</h3>
-				<p class="text">Designing scalable, secure, and cost-optimized cloud architectures using AWS Well-Architected Framework principles.</p>
-				<a class="iknow_tm_full_link" href="#"></a>
-				<div class="hidden_content"><div class="service_informations"><div class="description">
-					<p>I design end-to-end AWS architectures tailored to your workload — from VPC networking and compute sizing to database selection and security controls. Every design comes with detailed architecture diagrams and AWS Calculator cost estimates.</p>
-					<p>Services include multi-tier web applications, microservices architectures, serverless solutions, and hybrid cloud setups. I follow the AWS Well-Architected Framework across all five pillars: Operational Excellence, Security, Reliability, Performance Efficiency, and Cost Optimization.</p>
-				</div></div></div>
-			</div></li>
-			<li><div class="list_inner">
-				<span class="icon"><img class="svg" src="img/svg/physics.svg" alt="" /></span>
-				<h3 class="title">Cloud Migration</h3>
-				<p class="text">Planning and executing migrations from on-premise or legacy infrastructure to AWS with minimal downtime.</p>
-				<a class="iknow_tm_full_link" href="#"></a>
-				<div class="hidden_content"><div class="service_informations"><div class="description">
-					<p>I handle the full migration lifecycle — from discovery and assessment to execution and optimization. Whether it's a lift-and-shift, re-platforming, or full re-architecture, I ensure a smooth transition with proper testing and rollback strategies.</p>
-					<p>Experience migrating monolithic applications to containerized microservices, database migrations to RDS, and website migrations to S3/CloudFront.</p>
-				</div></div></div>
-			</div></li>
-			<li><div class="list_inner">
-				<span class="icon"><img class="svg" src="img/svg/gear.svg" alt="" /></span>
-				<h3 class="title">DevOps &amp; CI/CD</h3>
-				<p class="text">Automating deployments, infrastructure provisioning, and operational workflows for faster delivery.</p>
-				<a class="iknow_tm_full_link" href="#"></a>
-				<div class="hidden_content"><div class="service_informations"><div class="description">
-					<p>I build CI/CD pipelines, containerize applications with Docker, and automate infrastructure with CloudFormation and Terraform. Blue-green deployments, automated backups, and scheduled scaling are part of the standard toolkit.</p>
-					<p>From Git workflows to production deployments — I streamline the entire software delivery process.</p>
-				</div></div></div>
-			</div></li>
-			<li><div class="list_inner">
-				<span class="icon"><img class="svg" src="img/svg/web.svg" alt="" /></span>
-				<h3 class="title">Security &amp; Compliance</h3>
-				<p class="text">Implementing security best practices, WAF configurations, VAPT remediation, and compliance controls.</p>
-				<a class="iknow_tm_full_link" href="#"></a>
-				<div class="hidden_content"><div class="service_informations"><div class="description">
-					<p>Security is built into every architecture I design. I implement AWS WAF, Shield, Security Hub, GuardDuty, and IAM best practices. I also handle VAPT remediation, SSL/TLS management, and security audit responses.</p>
-					<p>For organizations with multiple accounts, I set up AWS Organizations with SCPs and Control Tower for centralized governance.</p>
-				</div></div></div>
-			</div></li>
-			<li><div class="list_inner">
-				<span class="icon"><img class="svg" src="img/svg/briefcase.svg" alt="" /></span>
-				<h3 class="title">Backup &amp; Disaster Recovery</h3>
-				<p class="text">Designing and implementing backup strategies, automated snapshots, and disaster recovery plans.</p>
-				<a class="iknow_tm_full_link" href="#"></a>
-				<div class="hidden_content"><div class="service_informations"><div class="description">
-					<p>I design backup strategies for EC2, RDS, and ElastiCache with automated scheduling and retention policies. For critical workloads, I implement cross-region replication and multi-AZ deployments.</p>
-					<p>Every production environment I manage has a tested backup and recovery procedure.</p>
-				</div></div></div>
-			</div></li>
-			<li><div class="list_inner">
-				<span class="icon"><img class="svg" src="img/svg/web.svg" alt="" /></span>
-				<h3 class="title">Web Development</h3>
-				<p class="text">Building responsive websites and web applications using modern frameworks and CMS platforms.</p>
-				<a class="iknow_tm_full_link" href="#"></a>
-				<div class="hidden_content"><div class="service_informations"><div class="description">
-					<p>I build corporate websites, eCommerce stores, event platforms, and web portals using HTML, CSS, JavaScript, PHP, WordPress (Elementor, WooCommerce), and Bootstrap. Each project includes responsive design, SEO optimization, and hosting configuration.</p>
-					<p>I also handle domain setup, SSL installation, hosting management (GoDaddy, Hostinger, Plesk), and ongoing site maintenance and performance monitoring.</p>
-				</div></div></div>
-			</div></li>
-			<li><div class="list_inner">
-				<span class="icon"><img class="svg" src="img/svg/user.svg" alt="" /></span>
-				<h3 class="title">Client Training &amp; Knowledge Transfer</h3>
-				<p class="text">Hands-on AWS training sessions, documentation, and knowledge transfer for client technical teams.</p>
-				<a class="iknow_tm_full_link" href="#"></a>
-				<div class="hidden_content"><div class="service_informations"><div class="description">
-					<p>I deliver hands-on training sessions covering AWS fundamentals, Auto Scaling, storage optimization, database management, and security best practices. Each session includes lab exercises in real AWS environments.</p>
-					<p>I also create comprehensive documentation, architecture rationale documents, and operational runbooks for client teams.</p>
-				</div></div></div>
-			</div></li>
-		</ul></div>
-	</div>
-</div>
-
-<!-- BLOG (commented out for now) -->
-<!--
-<div class="iknow_tm_section_new" id="news">
-	<div class="iknow_tm_news">
-		<div class="iknow_tm_main_title"><span>Blog</span><h3>Latest tips, tricks &amp; Updates</h3></div>
-		<div class="news_list"><ul></ul></div>
-	</div>
-</div>
--->
-
-<!-- CONTACT -->
-<div class="iknow_tm_section_new" id="contact">
-	<div class="iknow_tm_contact">
-		<div class="iknow_tm_main_title">
-			<span>Contact Me</span>
-			<h3>Let's build something together</h3>
-		</div>
-		<div class="wrapper">
-			<div class="left"><ul>
-				<li><div class="list_inner">
-					<span class="icon"><img class="svg" src="img/svg/letter.svg" alt="" /></span>
-					<div class="short"><h3>Email</h3><span><a href="mailto:bermudezjimmel7@gmail.com">bermudezjimmel7@gmail.com</a></span></div>
-				</div></li>
-				<li><div class="list_inner">
-					<span class="icon"><img class="svg" src="img/svg/placeholder.svg" alt="" /></span>
-					<div class="short"><h3>Location</h3><span>Caloocan City, Metro Manila</span></div>
-				</div></li>
-				<li><div class="list_inner">
-					<span class="icon"><img class="svg" src="img/svg/contacs.svg" alt="" /></span>
-					<div class="short"><h3>LinkedIn</h3><span><a href="https://www.linkedin.com/in/jimmelber/" target="_blank">linkedin.com/in/jimmelber</a></span></div>
-				</div></li>
-			</ul></div>
-			<div class="right"><div class="fields">
-				<!-- Contact form disabled for GitHub Pages -->
-			</div></div>
-		</div>
-	</div>
-</div>
-
-<!-- COPYRIGHT -->
-<div class="iknow_tm_copyright smaller onepage empty">
-	<div class="inner">
-		<div class="left"></div>
-		<div class="right"><ul><li><a href="#">DevJim &copy; 2026</a></li></ul></div>
-	</div>
-</div>
-
-</div>
-<!-- /MAINPART -->
-
-</div>
-
-<!-- MAGIC CURSOR -->
-<div class="mouse-cursor cursor-outer"></div>
-<div class="mouse-cursor cursor-inner"></div>
-
-</div>
-<!-- /WRAPPER ALL -->
-
-<!-- SCRIPTS -->
-<script src="js/jquery.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/init.js"></script>
-<script src="js/chatbot.js"></script>
+<script>
+(function(){
+  var r=document.documentElement,b=document.getElementById('theme');
+  b.addEventListener('click',function(){var t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('theme',t)}catch(e){}});
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>
