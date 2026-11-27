@@ -180,22 +180,24 @@
     c.style.transitionDelay = (n % 3) * 80 + 'ms';
     if ('IntersectionObserver' in window) io.observe(c); else c.classList.add('in');
   });
-  var cm = $('#case-modal'), idx = -1, opener = null;
-  function visible() { return cards.filter(function (c) { return !c.classList.contains('hidden'); }); }
+  var cm = $('#case-modal'), idx = -1, curCard = null, opener = null;
+  function visible(card) { return $$('.case', card.parentNode).filter(function (c) { return !c.classList.contains('hidden'); }); }
   function fill(card) {
-    var list = visible(), n = list.indexOf(card);
+    var list = visible(card), n = list.indexOf(card);
     $('#cm-title').textContent = $('h3', card).textContent;
     $('#cm-sub').textContent = $('.sub', card).textContent;
     var g = (card.dataset.group || '').split(' ').filter(function (x) { return x !== 'cloud'; }).join(' / ');
-    $('#cm-kind').textContent = g || 'cloud';
+    $('#cm-kind').textContent = card.classList.contains('svc') ? 'Service' : (g || 'cloud');
     var body = $('#cm-body'); body.innerHTML = '';
     body.appendChild($('template', card).content.cloneNode(true));
     var tags = $('#cm-tags'); tags.innerHTML = '';
-    $$('.tags li', card).forEach(function (li) { var x = document.createElement('li'); x.textContent = li.textContent; tags.appendChild(x); });
+    var tools = $('[data-tools]', body);
+    $$('li', tools || card.querySelector('.tags')).forEach(function (li) { var x = document.createElement('li'); x.textContent = li.textContent; tags.appendChild(x); });
+    if (tools) tools.remove();
     var ab = $('#cm-arch'); ab.hidden = !card.dataset.arch; ab.dataset.arch = card.dataset.arch || '';
     $('#cm-count').textContent = (n + 1) + ' of ' + list.length;
     idx = n;
-    var shownList = list; $('#cm-prev').disabled = shownList.length < 2; $('#cm-next').disabled = shownList.length < 2;
+    curCard = card; $('#cm-prev').disabled = list.length < 2; $('#cm-next').disabled = list.length < 2;
   }
   function openCase(card) {
     opener = document.activeElement;
@@ -211,12 +213,18 @@
     if (reduce) done(); else setTimeout(done, 220);
   }
   function step(d) {
-    var list = visible(); if (list.length < 2) return;
+    var list = visible(curCard); if (list.length < 2) return;
     fill(list[(idx + d + list.length) % list.length]);
     $('#cm-title').scrollIntoView({ block: 'nearest' });
   }
   cards.forEach(function (c) {
     c.addEventListener('click', function () { openCase(c); });
+  });
+  $('#cm-body').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-case]');
+    if (!b) return;
+    var t = cards.filter(function (c) { return !c.classList.contains('svc') && $('h3', c).textContent === b.dataset.case; })[0];
+    if (t) { fill(t); $('#cm-title').scrollIntoView({ block: 'nearest' }); }
   });
   $('#cm-close').addEventListener('click', closeCase);
   $('#cm-prev').addEventListener('click', function () { step(-1); });

@@ -1,5 +1,5 @@
-:root{--bg:#0b1220;--bg2:#111a2e;--card:#14203a;--text:#e7ecf5;--muted:#a3b0c8;--line:#24324f;--accent:#5eead4;--accent-ink:#052e2b;--link:#7dd3fc;--term:#050a14;--shadow:0 10px 30px rgba(0,0,0,.35)}
-[data-theme="light"]{--bg:#f7f9fc;--bg2:#eef2f8;--card:#fff;--text:#0f1b33;--muted:#4a5a78;--line:#d6deeb;--accent:#0f766e;--accent-ink:#fff;--link:#0b5cad;--term:#0f1b33;--shadow:0 10px 30px rgba(15,27,51,.08)}
+:root{--bg:#000a1f;--bg2:#000f2e;--card:#0a1a3a;--text:#f3f4f6;--muted:#b2bbcf;--soft:#7b89a8;--line:#192742;--accent:#00c7ff;--accent-dim:#009ac5;--accent-ink:#000a1f;--link:#00c7ff;--term:#000a1f;--shadow:0 12px 32px rgba(0,0,0,.45);--font:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:"DM Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+[data-theme="light"]{--bg:#f5f9ff;--bg2:#e9f1fc;--card:#fff;--text:#00102e;--muted:#3f4f73;--soft:#5a6a8e;--line:#cbd8ec;--accent:#006f8f;--accent-dim:#00576f;--accent-ink:#fff;--link:#006f8f;--term:#00102e;--shadow:0 12px 32px rgba(0,16,46,.12)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
@@ -139,3 +139,39 @@ body.lock{overflow:hidden}
 @media (max-width:980px){.nav .wrap{grid-template-columns:1fr auto}nav[aria-label="Primary"]{display:none}}
 @media (max-width:360px){.brand{letter-spacing:.08em;font-size:.95rem}.actions{gap:6px}}
 @media (prefers-reduced-motion:reduce){#case-modal,#case-modal::backdrop{transition:none}.case:hover{transform:none}}
+
+/* braydentw.io-inspired style: deep navy, cyan accent, outlined buttons, bar after section titles */
+body{font-family:var(--font);font-weight:400;line-height:1.6}
+body::-webkit-scrollbar{width:8px}body::-webkit-scrollbar-thumb{background:#fff2;border-radius:10px}
+section{padding:80px 0}
+.eyebrow,kbd,.stats span,.meta,.term pre,.tags li,.chip,.filters button{font-family:var(--mono)}
+.eyebrow{letter-spacing:.1em;color:var(--accent)}
+h1{font-weight:900;letter-spacing:-.05em;font-size:clamp(2.8rem,8vw,4.5rem)}
+h2{font-weight:700;font-size:clamp(1.8rem,4vw,2.5rem);display:flex;align-items:center;gap:20px}
+h2::after{content:"";flex:1;min-width:32px;height:4px;border-radius:2px;background:var(--accent)}
+.hero h1{display:block}
+.lead,.card .sub,.timeline p{color:var(--muted)}
+.btn{background:transparent;color:var(--text);border:2px solid var(--accent);border-radius:.75rem;font-weight:500;padding:10px 20px;transition:background .15s,color .15s,transform .15s}
+.btn:hover{background:var(--accent);color:var(--accent-ink);transform:translateY(-2px)}
+.btn.ghost{border-color:var(--line);color:var(--muted)}
+.btn.ghost:hover{border-color:var(--accent);background:transparent;color:var(--accent)}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:.75rem;box-shadow:none}
+section.alt .card{background:var(--card)}
+.case{transition:transform .5s cubic-bezier(.4,0,.2,1),border-color .2s,opacity .6s}
+.case:hover{transform:translateY(-.5rem);border-color:var(--accent)}
+.tags li,.chip{border-color:var(--line);color:var(--muted);border-radius:.375rem}
+.filters button{border-radius:.375rem;background:transparent;color:var(--muted)}
+.filters button:hover{border-color:var(--accent);color:var(--text)}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.icon-btn{border-radius:.75rem;background:transparent}
+header.nav{background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom-color:var(--line)}
+.nav ul a[aria-current="true"]{color:var(--accent)}
+.term{background:var(--term);border-radius:.75rem}
+.panel,.arch svg,#case-modal,dialog{border-radius:.75rem;border-color:var(--line)}
+.timeline li::before{background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+.svc-ic{background:color-mix(in srgb,var(--accent) 14%,transparent);border-radius:.75rem}
+.relist{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+button.rel{font:inherit;font-size:.85rem;color:var(--accent);background:transparent;border:1px solid var(--line);border-radius:.375rem;padding:4px 10px;cursor:pointer;transition:border-color .15s,background .15s}
+button.rel:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.svc .more::after{border-radius:.75rem}
+@media (max-width:640px){h2::after{display:none}section{padding:56px 0}}
