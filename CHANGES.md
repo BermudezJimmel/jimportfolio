@@ -12,13 +12,15 @@ Branch: `feature/modern-portfolio`
 - Case studies now open in a modal (native `<dialog>`): Problem / Approach / Outcome, tech chips, prev/next (buttons and arrow keys, respects the active filter), Esc, click outside, scroll lock, focus returns to the card, fade/slide animation (off under reduced motion). Cards with an architecture link show "See it in the architecture explorer", which closes the modal and opens the matching diagram.
 - Feel borrowed from braydentw.io (layout and interaction only, no text or code): bolder hero type, staggered scroll reveal, lift on card hover, polished modal.
 - Services now open the same modal as case studies: what it is, how I deliver it, typical tools as chips, and related case studies (click one to jump to it). Esc, outside click, focus trap, arrows and prev/next work among the services.
-- Restyled after braydentw.io (style only, no text, images or code copied). I read its public CSS. Values I chose, as CSS variables in `css/style.css`:
-  - Dark (default): `--bg #000a1f`, `--bg2 #000f2e`, `--card #0a1a3a`, `--line #192742`, `--text #f3f4f6`, `--muted #b2bbcf`, `--accent #00c7ff`, `--accent-ink #000a1f`.
-  - Light: `--bg #f5f9ff`, `--bg2 #e9f1fc`, `--card #ffffff`, `--line #cbd8ec`, `--text #00102e`, `--muted #3f4f73`, `--accent #006f8f`, `--accent-ink #ffffff`.
+- Palette is now monochrome (white, grey, black only; cyan and navy removed). Links are underlined because they share the text color. Diagram and icon colors follow the variables. Style kept after braydentw.io (style only, no text, images or code copied). I read its public CSS. Values I chose, as CSS variables in `css/style.css`:
+  - Dark (default): `--bg #000000`, `--bg2 #0a0a0a`, `--card #141414`, `--line #2e2e2e`, `--text #ffffff`, `--muted #b3b3b3`, `--accent #ffffff`, `--accent-ink #000000`.
+  - Light: `--bg #ffffff`, `--bg2 #f2f2f2`, `--card #e8e8e8`, `--line #cfcfcf`, `--text #000000`, `--muted #4d4d4d`, `--accent #000000`, `--accent-ink #ffffff`.
   - Type: Be Vietnam Pro (text) and DM Mono (labels, chips, terminal), black-weight tight headline.
   - Components: outlined cyan buttons that fill on hover, 12px-radius cards that lift on hover and take a cyan border, accent bar after each section title, small-radius mono chips.
   - Contrast was checked by calculation for body text, muted text and accent on both themes (AA target). Not tested with a tool.
 - Fonts come from Google Fonts (one extra request, with system-font fallback). If you want no third-party request, remove the two `fonts.g*` lines in `index.html`.
+- Photo: `img/jim.jpg` (320x320, 26 KB, cropped with `sips` from the old `img/hero/JIM.webp`, which is now unused). Shown round in the Hero and in About, alt text "Portrait of Jim". The old file also used as Open Graph image. Note the backdrop has partial neon wedding lettering at the edge; a plainer photo would look more professional.
+- Name rule: "Jim Bermudez" appears once, in the Hero heading. Elsewhere the page says "DEVJIM" or "Jim". Title is "DEVJIM | Solutions Architect". `<link rel="canonical">` and `og:url` were removed because they contain the name in the URL. Remaining "bermudez/jimmel" strings are only inside link URLs (LinkedIn, GitHub, Credly) and the `og:image` URL host.
 - Interactive parts (all keyboard accessible):
   - Hero terminal (`aws sts get-caller-identity` style) with a Skip button. The full text is in the HTML, so it shows without JS.
   - Counters for 7+ years, 55+ accounts, 4 certs.
