@@ -184,3 +184,15 @@ a{text-decoration:underline;text-underline-offset:3px}
 #about .avatar{width:160px;height:160px;margin-top:20px}
 [data-theme="light"] .term{border-color:#000}
 @media (max-width:640px){.hero .avatar{width:96px;height:96px}}
+
+/* QA fixes: tap targets, diagram scroll on phones, modal buttons */
+.diagram{min-width:0;overflow-x:auto;border-radius:.75rem}
+.diagram svg{display:block}
+.icon-btn{flex:none;min-width:44px;min-height:44px}
+.brand,.nav ul a{min-height:44px}
+.filters button,.term-bar button,button.rel,.case .more{min-height:44px}
+.term-bar button{padding:2px 14px}
+.case .more{padding:0 4px}
+.arch .node{outline-offset:2px}
+.arch .node:focus-visible rect{stroke:var(--accent);stroke-width:3}
+@media (max-width:640px){.diagram svg{min-width:600px}.filters button{padding:6px 16px}.relist button.rel{padding:8px 12px}}
