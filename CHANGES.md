@@ -2,6 +2,29 @@
 
 Branch: `feature/modern-portfolio`
 
+## Motion redesign (style and feel of ourlifeos.ai, monochrome only)
+I read the reference site's public CSS and JS and screenshotted it. Its motion vocabulary: blur-and-rise word reveal in the hero, fade-up reveals (22 px, 1.3 s, expo-out easing, staggered delays), a looping SVG "climb" with a moving dot and checkpoint ripples, a rotating statement line, mono uppercase numbered labels ("01 · The gap"), glass panels and soft drifting glows. I rebuilt that feel with Jim's content and white/grey/black only. No text, images or code were copied. No library is used. New files: `css/motion.css` (about 9 KB) and `js/motion.js` (about 4 KB). `css/style.css` and `js/main.js` are unchanged.
+
+What moves, and where to tweak it (search for "TWEAK" in `css/motion.css`, or the comment in `js/motion.js`):
+- Hero headline: "Jim" and "Bermudez" rise in with a blur, word by word. Stagger is `.14s` per word (`animation-delay` in `.js h1 .word`). Eyebrow, intro, focus line, buttons, stats and the portrait card fade up in sequence (delays `.05s` to `.75s`).
+- Hero background: two slow drifting grey glows (22 s and 28 s) and a drawn "career climb" line (20 s loop) with a moving dot and three checkpoints labelled 2019, 2022, 2024 (years from the CV). It is masked on the left so it never sits behind the text.
+- Rotating focus line under the intro (governance, migrations, WAF, training): 3.2 s per item, set in `js/motion.js`. Pauses on hover or focus and in hidden tabs.
+- Scroll reveals on every section and card: 22 px rise, 1.3 s (`.reveal` in `css/motion.css`), with a small stagger on card grids.
+- Marquee of tool chips under the hero (built from the Skills chips). Speed is set in `js/motion.js` (`names.length * 2` seconds per loop). Pauses on hover.
+- Sticky, stepped Experience and Services: the section title and a big "01 / 03" counter stay in place while the entries scroll. The entry nearest the middle of the screen is highlighted and the counter follows. Inactive entries stay at 72 percent opacity so text stays readable.
+- Numbered section labels ("01 · About") via CSS counters.
+- Cursor-follow glow (grey/white) and a spotlight inside cards on hover. Only on mouse devices.
+- Cards lift on hover, the page fades in on load, years counter still computes from `data-years-since`.
+- Kept: modals, architecture explorer, filters, Ctrl K menu, theme toggle, DEVJIM nav with terminal icon, favicon, 44 px tap targets, one portrait.
+
+Accessibility and performance:
+- `prefers-reduced-motion`: no stagger, parallax, glow, cursor glow, marquee scroll or rotating line. The climb line is drawn fully and the marquee becomes a static wrapped list. Reveals show at once.
+- Only transform, opacity and filter are animated. Images have width and height set, and the rotating line reserves its space, so there is no layout shift. The headline is hidden until split and has a 2 s CSS fallback if JS fails. Without JS everything is visible.
+- Below 860 px the sticky columns become normal stacked sections and the glow line is dimmed.
+
+Checked: `node --check` on both JS files, headless Chrome screenshots at 1280 px (dark, light with reduced motion, and normal motion) and 500 px (headless Chrome will not go below about 500). In normal-motion screenshots some lower sections look dim because the screenshot is taken mid-transition; with reduced motion they are at full strength. The live scroll animation, the sticky step highlight and the cursor glow cannot be seen in a still screenshot, so please scroll the page once. I did not run Lighthouse.
+Not changed: any factual text (the CV accuracy review will follow). The 2019, 2022 and 2024 labels on the hero line come from the existing experience dates.
+
 ## What changed
 - Rebuilt as a static page: `index.html`, `css/style.css`, `js/main.js` (vanilla JS). No build step, no libraries, no web fonts (system font stack).
 - Dark and light theme. It follows the visitor's system setting and a button saves the choice.
