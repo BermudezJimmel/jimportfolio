@@ -34,7 +34,8 @@ Branch: `feature/modern-portfolio`
 - Only these numbers are used: 55+ accounts, 7+ years, 10+ client accounts, 7 engineers led, and the AWS certs with their dates.
 - Public email removed (page and chatbot). Contact is now LinkedIn, GitHub and the CV link.
 - Title, description, canonical and Open Graph / Twitter tags fixed.
-- Kept: `img/` (portrait `img/hero/JIM.webp`, logo used as favicon), CV link (same Google Docs URL), LinkedIn and GitHub links.
+- LinkedIn link corrected to the profile ending in -037699169 (page button and command menu); the old /in/ address is gone from the repo.
+- Kept: `img/` (portrait now `img/jim.jpg`, logo used as favicon), CV link (same Google Docs URL), LinkedIn and GitHub links.
 
 ## Files touched
 - Rewritten: `index.html`

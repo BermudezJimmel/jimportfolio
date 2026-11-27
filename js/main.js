@@ -121,7 +121,7 @@
     return { t: 'Go to ' + a.textContent, run: function () { location.hash = a.getAttribute('href'); } };
   }).concat([
     { t: 'Toggle dark / light theme', run: toggleTheme },
-    { t: 'Open LinkedIn', run: function () { open('https://www.linkedin.com/in/jimmelber/'); } },
+    { t: 'Open LinkedIn', run: function () { open('https://www.linkedin.com/in/jimmel-bermudez-037699169'); } },
     { t: 'Open GitHub', run: function () { open('https://github.com/BermudezJimmel'); } },
     { t: 'Verify certifications on Credly', run: function () { open('https://www.credly.com/users/jimmel-bermudez/badges'); } }
   ]);
