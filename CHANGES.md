@@ -7,9 +7,9 @@ Branch: `feature/modern-portfolio`
 - Dark and light theme. It follows the visitor's system setting and a button saves the choice.
 - Responsive layout, skip link, visible keyboard focus, alt text on the photo, semantic landmarks.
 - Motion is subtle (fade-in on scroll, card hover). It is switched off under `prefers-reduced-motion`.
-- Role now reads: Solutions Architect, Service Delivery Lead and TAM (Sagesoft, Oct 2024 to present).
+- Role now reads: Solutions Architect / Service Delivery Tech Team Lead and TAM (Sagesoft, Oct 2024 to present). Experience, awards, AI Practitioner cert, "7+ years" and grouped skills follow Jim's current CV.
 - Four anonymized case studies: government WordPress to AWS Auto Scaling, Control Tower governance, WAF assessment, client AWS training.
-- Only these numbers are used: 55+ accounts, 6+ years, and the three AWS certs with their dates.
+- Only these numbers are used: 55+ accounts, 7+ years, 10+ client accounts, 7 engineers led, and the AWS certs with their dates.
 - Public email removed (page and chatbot). Contact is now LinkedIn, GitHub and the CV link.
 - Title, description, canonical and Open Graph / Twitter tags fixed.
 - Kept: `img/` (portrait `img/hero/JIM.webp`, logo used as favicon), CV link (same Google Docs URL), LinkedIn and GitHub links.
@@ -30,7 +30,6 @@ Branch: `feature/modern-portfolio`
 - Training case: topics (Bedrock, Kiro) assumed from your brief.
 - Older cases removed from the page: eCommerce microservices, microservices migration, Bedrock government chatbot, HA infrastructure, LGU cloud, and the 5 web development projects. Say which to bring back.
 - The old "Services" section, skill percentage bars, Facebook link, testimonials and background audio are gone. Bring back any you want.
-- Education (BSIT, Bestlink College, 2015 to 2019) was dropped from the page. Add back if wanted.
 - Location shows "Metro Manila, Philippines" (old page said Caloocan City).
 - Chatbot removed. It showed an email and claimed "5+ years" and "15+ AWS services". Say if you want a rebuilt version.
 - Open Graph image uses the portrait. A 1200x630 card image would look better.
