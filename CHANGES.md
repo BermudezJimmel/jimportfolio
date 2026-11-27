@@ -3,10 +3,14 @@
 Branch: `feature/modern-portfolio`
 
 ## What changed
-- Rebuilt as a static page: `index.html`, `css/style.css`, `js/main.js` (about 8 KB of vanilla JS). No build step, no libraries, no web fonts (system font stack).
+- Rebuilt as a static page: `index.html`, `css/style.css`, `js/main.js` (vanilla JS). No build step, no libraries, no web fonts (system font stack).
 - Dark and light theme. It follows the visitor's system setting and a button saves the choice.
 - Responsive layout, skip link, visible keyboard focus, alt text on the photo, semantic landmarks.
 - Motion is subtle (fade-in on scroll, card hover, counters, terminal typing). All of it is switched off under `prefers-reduced-motion`.
+- Navbar rebuilt: brand "DEVJIM" left, links centered, 44px icon buttons right (command menu, sun/moon theme), sticky with blurred background, active link highlighted on scroll. Below 980px the links move into the command menu (Menu button, `/` or `Ctrl K`), so it fits 320px to 1440px.
+- Icons: inline SVG sprite (Lucide style, no CDN) used on nav links, section labels, service cards, skill chips (one icon per category), filter buttons and contact links (LinkedIn, GitHub, Credly). I checked `skillicons.dev` (HTTP 200) but did not use it: it covers only some of the tools, mixes styles, and adds a third-party request.
+- Case studies now open in a modal (native `<dialog>`): Problem / Approach / Outcome, tech chips, prev/next (buttons and arrow keys, respects the active filter), Esc, click outside, scroll lock, focus returns to the card, fade/slide animation (off under reduced motion). Cards with an architecture link show "See it in the architecture explorer", which closes the modal and opens the matching diagram.
+- Feel borrowed from braydentw.io (layout and interaction only, no text or code): bolder hero type, staggered scroll reveal, lift on card hover, polished modal.
 - Interactive parts (all keyboard accessible):
   - Hero terminal (`aws sts get-caller-identity` style) with a Skip button. The full text is in the HTML, so it shows without JS.
   - Counters for 7+ years, 55+ accounts, 4 certs.
@@ -47,8 +51,8 @@ Branch: `feature/modern-portfolio`
 - Git showed many files as modified (mode or line-ending noise, no content change, e.g. `audio/*.mp3`). I did not commit those.
 
 ## Testing done
-- `node --check js/main.js` passes. HTML tags balance and all ids used by the JS exist. No email, phone or mailto in the page, CSS or JS.
-- No headless browser render was run (memory is tight). Please open the page once, test the Ctrl K menu and the dark/light toggle.
+- `node --check js/main.js` passes. All `<use href="#i-...">` icons exist in the sprite, and all ids used by the modal exist. HTML tags balance and all ids used by the JS exist. No email, phone or mailto in the page, CSS or JS.
+- No headless browser render was possible (no Chrome found, memory tight), so layout at 320px and 1440px, the modal and the nav highlight were not visually checked. Please open the page once and try: the 320px width, a case study modal (arrows, Esc), Ctrl K and the theme button.
 
 ## Preview
 Open `index.html` in a browser, or run `python3 -m http.server 8000` in this folder and visit http://localhost:8000.

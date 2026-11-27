@@ -105,12 +105,13 @@
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(n.dataset.id); }
     });
   });
+  function setDiagram(d) {
+    $$('[data-diagram]').forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.diagram === d ? 'true' : 'false'); });
+    $('#d-org').classList.toggle('hidden', d !== 'org');
+    $('#d-web').classList.toggle('hidden', d !== 'web');
+  }
   $$('[data-diagram]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      $$('[data-diagram]').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      $('#d-org').classList.toggle('hidden', b.dataset.diagram !== 'org');
-      $('#d-web').classList.toggle('hidden', b.dataset.diagram !== 'web');
-    });
+    b.addEventListener('click', function () { setDiagram(b.dataset.diagram); });
   });
 
   // Command palette: / or Ctrl/Cmd+K.
@@ -154,5 +155,80 @@
       e.preventDefault();
       openPalette();
     }
+  });
+
+  // Active nav link on scroll.
+  var links = $$('header nav a'), secs = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) {
+          if (a.getAttribute('href') === '#' + e.target.id) a.setAttribute('aria-current', 'true');
+          else a.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    secs.forEach(function (s) { if (s) so.observe(s); });
+  }
+
+  // Case study cards: staggered reveal and modal.
+  var cards = $$('.case');
+  cards.forEach(function (c, n) {
+    if (reduce) return;
+    c.classList.add('reveal');
+    c.style.transitionDelay = (n % 3) * 80 + 'ms';
+    if ('IntersectionObserver' in window) io.observe(c); else c.classList.add('in');
+  });
+  var cm = $('#case-modal'), idx = -1, opener = null;
+  function visible() { return cards.filter(function (c) { return !c.classList.contains('hidden'); }); }
+  function fill(card) {
+    var list = visible(), n = list.indexOf(card);
+    $('#cm-title').textContent = $('h3', card).textContent;
+    $('#cm-sub').textContent = $('.sub', card).textContent;
+    var g = (card.dataset.group || '').split(' ').filter(function (x) { return x !== 'cloud'; }).join(' / ');
+    $('#cm-kind').textContent = g || 'cloud';
+    var body = $('#cm-body'); body.innerHTML = '';
+    body.appendChild($('template', card).content.cloneNode(true));
+    var tags = $('#cm-tags'); tags.innerHTML = '';
+    $$('.tags li', card).forEach(function (li) { var x = document.createElement('li'); x.textContent = li.textContent; tags.appendChild(x); });
+    var ab = $('#cm-arch'); ab.hidden = !card.dataset.arch; ab.dataset.arch = card.dataset.arch || '';
+    $('#cm-count').textContent = (n + 1) + ' of ' + list.length;
+    idx = n;
+    var shownList = list; $('#cm-prev').disabled = shownList.length < 2; $('#cm-next').disabled = shownList.length < 2;
+  }
+  function openCase(card) {
+    opener = document.activeElement;
+    fill(card);
+    document.body.classList.add('lock');
+    cm.showModal();
+    requestAnimationFrame(function () { cm.classList.add('show'); });
+    $('#cm-close').focus();
+  }
+  function closeCase() {
+    function done() { cm.close(); document.body.classList.remove('lock'); if (opener && opener.focus) opener.focus(); }
+    cm.classList.remove('show');
+    if (reduce) done(); else setTimeout(done, 220);
+  }
+  function step(d) {
+    var list = visible(); if (list.length < 2) return;
+    fill(list[(idx + d + list.length) % list.length]);
+    $('#cm-title').scrollIntoView({ block: 'nearest' });
+  }
+  cards.forEach(function (c) {
+    c.addEventListener('click', function () { openCase(c); });
+  });
+  $('#cm-close').addEventListener('click', closeCase);
+  $('#cm-prev').addEventListener('click', function () { step(-1); });
+  $('#cm-next').addEventListener('click', function () { step(1); });
+  $('#cm-arch').addEventListener('click', function () {
+    var d = $('#cm-arch').dataset.arch; closeCase(); opener = null; setDiagram(d);
+    setTimeout(function () { $('#architecture').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }, 240);
+  });
+  cm.addEventListener('cancel', function (e) { e.preventDefault(); closeCase(); });
+  cm.addEventListener('click', function (e) { if (e.target === cm) closeCase(); });
+  cm.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'ArrowRight') step(1);
   });
 })();
